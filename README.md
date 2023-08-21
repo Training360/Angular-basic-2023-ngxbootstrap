@@ -7,7 +7,13 @@ Standalone Angular Applications
 - `ng add ngx-bootstrap`
 
 ## Lesson-02
+- [ConfigService](src\app\service\config.service.ts)
+- [NavComponent](src/app/common/nav/nav.component.ts)
 - `import { BsDropdownModule } from 'ngx-bootstrap/dropdown';`
+- [NavComponent HTML](src\app\common\nav\nav.component.html)
+
+## Lesson-03
+
 
 
 
