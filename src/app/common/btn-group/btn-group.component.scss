@@ -1,0 +1,7 @@
+.group-parent {
+  display: flex;
+  .btn-group {
+    margin-left: auto;
+    order: 2;
+  }
+}

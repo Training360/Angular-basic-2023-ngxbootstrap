@@ -1,0 +1,37 @@
+$error-color: rgba(161, 2, 2);
+
+.card {
+  &.form-card {
+    max-width: 35rem;
+    min-width: 50vw;
+
+    .form-group, .form-check {
+      label {
+        text-transform: capitalize;
+      }
+
+      .error-message {
+        margin-top: 0.3em;
+        font-style: italic;
+        font-size: 0.9em;
+        color: rgb(161, 2, 2);
+      }
+
+      .form-control {
+        &.ng-invalid {
+          background-color: rgba($error-color, .1);
+          &:focus {
+            box-shadow: 0 0 0 0.25rem rgba($error-color, .25);
+          }
+        }
+      }
+    }
+
+    .form-check {
+      label {
+        user-select: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

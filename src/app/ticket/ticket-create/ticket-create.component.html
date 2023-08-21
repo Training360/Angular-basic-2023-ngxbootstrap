@@ -1,0 +1,71 @@
+<div class="page d-flex justify-content-center p-2">
+
+  <div class="card form-card">
+    <div class="card-body">
+      <h5 class="card-title">Create Ticket</h5>
+      <form [formGroup]="form" (ngSubmit)="onCreate()">
+        <div class="form-group">
+          <label class="form-label">flightNumber</label>
+          <input
+            formControlName="flightNumber"
+            type="text"
+            class="form-control">
+          <div *ngIf="!isValid('flightNumber')" class="error-message">
+            It must consist two letters and four numbers.
+          </div>
+          </div>
+        <div class="form-group">
+          <label class="form-label">seat</label>
+          <input
+            formControlName="seat"
+            type="text" class="form-control"
+            pattern="^[A-Za-z][0-9]$"
+            required>
+          <div *ngIf="!isValid('seat')" class="error-message">
+            It must consist a letters and a numbers.
+            <div *ngIf="form.controls['seat'].errors?.['seatError']">
+              {{ form.controls['seat'].errors?.['seatError'] }}
+            </div>
+          </div>
+          </div>
+        <div class="form-group">
+          <label class="form-label">service</label>
+          <select
+            formControlName="service"
+            class="form-select"
+            required>
+              <option value="">please select</option>
+              <option value="tourist">tourist</option>
+              <option value="business">business</option>
+              <option value="economy">economy</option>
+          </select>
+          <div *ngIf="!isValid('service')" class="error-message">
+            Please select a valid option.
+            <div>
+              {{ form.controls['service'].errors?.['airlineError'] }}
+            </div>
+          </div>
+        </div>
+        <div class="form-check mt-3">
+          <input
+            formControlName="checked"
+            id="check"
+            class="form-check-input"
+            type="checkbox"
+            checked>
+          <label class="form-check-label" for="check">
+            checked
+          </label>
+        </div>
+
+        <div class="d-grid mt-3">
+          <button [disabled]="form.invalid" class="btn btn-primary" type="submit">
+            <i class="fa fa-save"></i>
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

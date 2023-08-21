@@ -1,0 +1,44 @@
+<div class="group-parent">
+  <div (appSelect)="raiseClick($event)" class="btn-group">
+    <ng-container *ngFor="let btn of buttons">
+      <ng-container [ngSwitch]="btn.type">
+        <button [name]="btn.name" class="btn btn-primary" *ngSwitchCase="'primary'">
+          <i *ngIf="!btn.icon; else icon" class="fa fa-question"></i>
+          <ng-template #icon>
+            <i class="fa" [class]="btn.icon"></i>
+          </ng-template>
+        </button>
+        <button [name]="btn.name" class="btn btn-secondary" *ngSwitchCase="'secondary'">
+          <i *ngIf="!btn.icon; else icon" class="fa fa-question"></i>
+          <ng-template #icon>
+            <i class="fa" [class]="btn.icon"></i>
+          </ng-template>
+        </button>
+        <button [name]="btn.name" class="btn btn-success" *ngSwitchCase="'success'">
+          <i *ngIf="!btn.icon; else icon" class="fa fa-question"></i>
+          <ng-template #icon>
+            <i class="fa" [class]="btn.icon"></i>
+          </ng-template>
+        </button>
+        <button [name]="btn.name" class="btn btn-danger" *ngSwitchCase="'danger'">
+          <i *ngIf="!btn.icon; else icon" class="fa fa-question"></i>
+          <ng-template #icon>
+            <i class="fa" [class]="btn.icon"></i>
+          </ng-template>
+        </button>
+        <button [name]="btn.name" class="btn btn-warning" *ngSwitchCase="'warning'">
+          <i *ngIf="!btn.icon; else icon" class="fa fa-question"></i>
+          <ng-template #icon>
+            <i class="fa" [class]="btn.icon"></i>
+          </ng-template>
+        </button>
+        <button [name]="btn.name" class="btn btn-info" *ngSwitchCase="'info'">
+          <i *ngIf="!btn.icon; else icon" class="fa fa-question"></i>
+          <ng-template #icon>
+            <i class="fa" [class]="btn.icon"></i>
+          </ng-template>
+        </button>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
