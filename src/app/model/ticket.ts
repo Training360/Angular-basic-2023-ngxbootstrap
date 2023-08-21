@@ -4,4 +4,5 @@ export class Ticket {
   seat: string = '';
   service: 'tourist' | 'business' | 'economy' = 'economy';
   checked: boolean = false;
+  departureDate?: Date = new Date();
 }

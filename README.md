@@ -20,6 +20,13 @@ Standalone Angular Applications
 - [TicketsComponent HTML](src\app\ticket\tickets\tickets.component.ts)
 
 ## Lesson-04
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/datepicker?tab=overview)
+- [Ticket](src\app\model\ticket.ts)
+- [TicketCreateComponent](src\app\ticket\ticket-create\ticket-create.component.ts)
+- `import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';`
+- [TicketCreateComponent HTML](src\app\ticket\ticket-create\ticket-create.component.html)
+
+## Lesson-05
 
 
 

@@ -32,7 +32,7 @@ export class FilterComponent implements OnInit {
     combineLatest([
       this.key.valueChanges,
       this.phrase.valueChanges,
-    ]).subscribe(values => this.filter.emit({
+    ]).subscribe((values: string[]) => this.filter.emit({
       key: values[0],
       phrase: values[1],
     }));

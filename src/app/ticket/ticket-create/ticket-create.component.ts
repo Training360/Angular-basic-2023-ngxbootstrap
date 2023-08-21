@@ -5,13 +5,14 @@ import { map } from 'rxjs';
 import { Ticket } from 'src/app/model/ticket';
 import { TicketService } from 'src/app/service/ticket.service';
 import { Location, NgIf } from '@angular/common';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @Component({
     selector: 'app-ticket-create',
     templateUrl: './ticket-create.component.html',
     styleUrls: ['./ticket-create.component.scss'],
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, NgIf]
+    imports: [FormsModule, ReactiveFormsModule, NgIf, BsDatepickerModule]
 })
 export class TicketCreateComponent {
 
@@ -57,7 +58,15 @@ export class TicketCreateComponent {
       value: false,
       disabled: false,
     }),
+    departureDate: new FormControl<Date>({
+      value: new Date(),
+      disabled: false,
+    }),
   });
+
+  datePickerConfig = {
+    dateInputFormat: 'YYYY-MM-DD',
+  };
 
   isValid(name: string): boolean {
     return this.form.controls[name]?.pristine
@@ -65,7 +74,7 @@ export class TicketCreateComponent {
   }
 
   validateAriline(): ValidatorFn {
-    return (constol: AbstractControl) => {
+    return (control: AbstractControl) => {
       if (this.form) {
         const flightNumber = this.form.controls['flightNumber'].value;
         if (flightNumber.slice(0, 2).toLowerCase() !== 'wz') {
@@ -88,7 +97,7 @@ export class TicketCreateComponent {
         seat: this.form.controls['seat'].value,
       }
     ).pipe(
-      map( response => {
+      map( (response: Ticket[]) => {
         if (response.length) {
           return {seatError: 'The seat has already been sold!'};
         }
@@ -99,7 +108,7 @@ export class TicketCreateComponent {
 
   onCreate(): void {
     this.ticketService.create(this.form.value).subscribe(
-      created => this.location.back()
+      () => this.location.back()
     );
   }
 
