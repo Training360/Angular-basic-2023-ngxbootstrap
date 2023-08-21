@@ -8,8 +8,8 @@ describe('TicketEditorComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TicketEditorComponent]
-    });
+    imports: [TicketEditorComponent]
+});
     fixture = TestBed.createComponent(TicketEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

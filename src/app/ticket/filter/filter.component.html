@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-4">
+    <select [formControl]="key" class="form-select">
+      <option *ngFor="let option of options" [value]="option.val">
+        {{ option.text }}
+      </option>
+    </select>
+  </div>
+  <div class="col-4">
+    <input [formControl]="phrase" type="text" class="form-control">
+  </div>
+  <div class="col-2">
+    <button class="btn btn-primary">
+      search
+    </button>
+  </div>
+</div>

@@ -8,8 +8,8 @@ describe('BtnGroupComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BtnGroupComponent]
-    });
+    imports: [BtnGroupComponent]
+});
     fixture = TestBed.createComponent(BtnGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

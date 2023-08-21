@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'arrayFilter'
+    name: 'arrayFilter',
+    standalone: true
 })
 export class ArrayFilterPipe<T extends {[k: string]: any}> implements PipeTransform {
 

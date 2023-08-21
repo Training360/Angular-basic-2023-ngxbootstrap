@@ -17,7 +17,7 @@
     {
       "id": 3,
       "flightNumber": "lk9985",
-      "seat": "c7",
+      "seat": "c6",
       "service": "tourist",
       "checked": true
     },
@@ -6999,6 +6999,13 @@
       "seat": "l2",
       "service": "business",
       "checked": true
+    },
+    {
+      "flightNumber": "hz7777",
+      "seat": "h5",
+      "service": "tourist",
+      "checked": true,
+      "id": 1001
     }
   ]
 }

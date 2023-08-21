@@ -3,7 +3,7 @@
   <div *ngIf="ticket$ | async as ticket" class="card form-card">
     <div class="card-body">
       <h5 class="card-title">Edit Ticket</h5>
-      <form #ticketForm="ngForm">
+      <form #ticketForm="ngForm" (ngSubmit)="onSave(ticket)">
         <div class="form-group">
           <label class="form-label">flightNumber</label>
           <input

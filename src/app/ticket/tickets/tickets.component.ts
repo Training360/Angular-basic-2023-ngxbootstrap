@@ -1,13 +1,25 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { IBtn, IBtnGroupOutput } from 'src/app/common/btn-group/btn-group.component';
 import { Ticket } from 'src/app/model/ticket';
 import { TicketService } from 'src/app/service/ticket.service';
+import { BooleanPipe } from '../../pipe/boolean.pipe';
+import { ArrayFilterPipe } from '../../pipe/array-filter.pipe';
+import { BtnGroupComponent } from '../../common/btn-group/btn-group.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { FilterComponent, IFilterItems } from '../filter/filter.component';
+import { FilterPipe } from '../filter/filter.pipe';
 
 @Component({
-  selector: 'app-tickets',
-  templateUrl: './tickets.component.html',
-  styleUrls: ['./tickets.component.scss']
+    selector: 'app-tickets',
+    templateUrl: './tickets.component.html',
+    styleUrls: ['./tickets.component.scss'],
+    standalone: true,
+    imports: [RouterLink, NgIf, NgFor, BtnGroupComponent, AsyncPipe,
+      ArrayFilterPipe, BooleanPipe,
+      FilterComponent,
+      FilterPipe,
+    ],
 })
 export class TicketsComponent {
 
@@ -20,6 +32,8 @@ export class TicketsComponent {
   isSearchBarVisible: boolean = false;
 
   filterPhrase: string = '';
+
+  filterKey: string = '';
 
   tickets: Ticket[] = [
     {
@@ -50,6 +64,14 @@ export class TicketsComponent {
     { name: 'remove', type: 'danger', icon: 'fa-trash' },
   ];
 
+  filterOptions = [
+    {val: '', text: 'choose a key'},
+    {val: 'id', text: 'ID'},
+    {val: 'flightNumber', text: 'F.N.'},
+    {val: 'seat', text: 'Seat'},
+    {val: 'service', text: 'Service'},
+  ];
+
   tickets$ = this.ticketService.list$;
 
   selectedTicket$ = this.ticketService.one$;
@@ -62,6 +84,12 @@ export class TicketsComponent {
 
   toggleSearchBar(): void {
     this.isSearchBarVisible = !this.isSearchBarVisible;
+  }
+
+  onFilter(values: IFilterItems): void {
+    console.log(values)
+    this.filterKey = values.key;
+    this.filterPhrase = values.phrase;
   }
 
   onGroupClick(details: IBtnGroupOutput) {

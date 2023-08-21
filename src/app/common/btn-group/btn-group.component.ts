@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { NgFor, NgSwitch, NgSwitchCase, NgIf } from '@angular/common';
+import { SelectDirective } from './select.directive';
 
 export interface IBtn {
   type: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -12,9 +14,11 @@ export interface IBtnGroupOutput {
 }
 
 @Component({
-  selector: 'app-btn-group',
-  templateUrl: './btn-group.component.html',
-  styleUrls: ['./btn-group.component.scss']
+    selector: 'app-btn-group',
+    templateUrl: './btn-group.component.html',
+    styleUrls: ['./btn-group.component.scss'],
+    standalone: true,
+    imports: [SelectDirective, NgFor, NgSwitch, NgSwitchCase, NgIf]
 })
 export class BtnGroupComponent {
   @Input() buttons: IBtn[] = [];

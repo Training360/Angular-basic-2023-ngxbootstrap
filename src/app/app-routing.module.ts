@@ -14,7 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'ticket',
-    loadChildren: () => import('./ticket/ticket.module').then(m => m.TicketModule)
+    loadChildren: () => import('./ticket/routes').then(
+      mod => mod.TICKET_ROUTES
+    ),
   },
   {
     path: '**',
@@ -23,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {bindToComponentInputs: true})],
+  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

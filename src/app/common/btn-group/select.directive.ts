@@ -1,7 +1,8 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Directive({
-  selector: '[appSelect]'
+    selector: '[appSelect]',
+    standalone: true
 })
 export class SelectDirective {
 
