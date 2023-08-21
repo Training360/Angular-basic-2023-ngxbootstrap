@@ -1,52 +1,10 @@
 {
   "tickets": [
     {
-      "id": 1,
-      "flightNumber": "wk0083",
-      "seat": "a0",
-      "service": "tourist",
-      "checked": false
-    },
-    {
-      "id": 2,
-      "flightNumber": "ao2778",
-      "seat": "h4",
-      "service": "economy",
-      "checked": false
-    },
-    {
-      "id": 3,
-      "flightNumber": "lk9985",
-      "seat": "c6",
-      "service": "tourist",
-      "checked": true
-    },
-    {
       "id": 4,
       "flightNumber": "bu9896",
       "seat": "i1",
       "service": "business",
-      "checked": false
-    },
-    {
-      "id": 5,
-      "flightNumber": "ym2497",
-      "seat": "v1",
-      "service": "business",
-      "checked": true
-    },
-    {
-      "id": 6,
-      "flightNumber": "bg2002",
-      "seat": "b5",
-      "service": "tourist",
-      "checked": true
-    },
-    {
-      "id": 7,
-      "flightNumber": "pb2308",
-      "seat": "y7",
-      "service": "tourist",
       "checked": false
     },
     {

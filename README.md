@@ -27,6 +27,12 @@ Standalone Angular Applications
 - [TicketCreateComponent HTML](src\app\ticket\ticket-create\ticket-create.component.html)
 
 ## Lesson-05
+- [ToastComponent](src\app\common\toast.component.ts)
+- [AppComponent](src\app\app.component.ts)
+- [AppComponent HTML](src\app\app.component.html)
+- [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
+
+## Lesson-06
 
 
 

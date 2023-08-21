@@ -10,6 +10,7 @@ import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 import { FilterComponent, IFilterItems } from '../filter/filter.component';
 import { FilterPipe } from '../filter/filter.pipe';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { ToastService } from 'src/app/common/toast.component';
 
 @Component({
     selector: 'app-tickets',
@@ -28,6 +29,8 @@ export class TicketsComponent {
   router: Router = inject(Router);
 
   ticketService: TicketService = inject(TicketService);
+
+  toastService = inject(ToastService);
 
   title = 'angular-directives';
 
@@ -97,7 +100,8 @@ export class TicketsComponent {
   onGroupClick(details: IBtnGroupOutput) {
     switch (details.name) {
       case 'remove':
-        this.ticketService.dispatch('delete', (details.data as Ticket));
+        this.toastService.show(`You don't have the right to delete!`, 3000, 'danger');
+        // this.ticketService.dispatch('delete', (details.data as Ticket));
         break;
       case 'show':
         this.router.navigate(['/ticket', 'edit', details.data.id]);
