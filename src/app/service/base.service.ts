@@ -21,15 +21,15 @@ export class BaseService<T extends IBaseEntity> {
   public one$: BehaviorSubject<T | null> = new BehaviorSubject<T | null>(null);
 
   private actions: {[k: string]: Function} = {
-    getAll: () => this.getAll().subscribe( list => this.list$.next(list) ),
+    getAll: () => this.getAll().subscribe( (list: T[]) => this.list$.next(list) ),
     get: (id: number) => this.get(id).subscribe(
-      one => this.one$.next(one)
+      (one: T) => this.one$.next(one)
     ),
     create: (entity: T) => this.create(entity).subscribe(
       () => this.actions['getAll']()
     ),
     update: (entity: T) => this.update(entity).subscribe(
-      updated => {
+      (updated: T) => {
         const list = this.list$.getValue();
         const index = list.findIndex( i => i.id === updated.id );
         list.splice(index, 1, updated);

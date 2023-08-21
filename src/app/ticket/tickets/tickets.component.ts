@@ -9,6 +9,7 @@ import { BtnGroupComponent } from '../../common/btn-group/btn-group.component';
 import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 import { FilterComponent, IFilterItems } from '../filter/filter.component';
 import { FilterPipe } from '../filter/filter.pipe';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @Component({
     selector: 'app-tickets',
@@ -19,6 +20,7 @@ import { FilterPipe } from '../filter/filter.pipe';
       ArrayFilterPipe, BooleanPipe,
       FilterComponent,
       FilterPipe,
+      AlertModule,
     ],
 })
 export class TicketsComponent {

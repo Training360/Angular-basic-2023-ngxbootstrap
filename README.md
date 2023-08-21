@@ -7,14 +7,19 @@ Standalone Angular Applications
 - `ng add ngx-bootstrap`
 
 ## Lesson-02
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/dropdowns?tab=overview)
 - [ConfigService](src\app\service\config.service.ts)
 - [NavComponent](src/app/common/nav/nav.component.ts)
 - `import { BsDropdownModule } from 'ngx-bootstrap/dropdown';`
 - [NavComponent HTML](src\app\common\nav\nav.component.html)
 
 ## Lesson-03
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/alerts?tab=overview)
+- [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
+- `import { AlertModule } from 'ngx-bootstrap/alert';`
+- [TicketsComponent HTML](src\app\ticket\tickets\tickets.component.ts)
 
-
+## Lesson-04
 
 
 

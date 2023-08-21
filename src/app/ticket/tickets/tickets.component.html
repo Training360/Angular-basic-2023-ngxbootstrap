@@ -22,6 +22,15 @@
   <div class="col-12">Searchbar is hidden</div>
 </ng-template>
 
+<div class="row" *ngIf="tickets$ | async as tickets">
+  <div *ngIf="tickets.length" class="col-12">
+    <alert [type]="'info'" [dismissible]="true">
+      <strong>Loaded: </strong>
+      {{ tickets.length }} tickets
+    </alert>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-12">
     <table class="table table-striped">
