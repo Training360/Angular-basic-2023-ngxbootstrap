@@ -31,7 +31,15 @@
   </div>
 </div>
 
-<div class="row">
+<div *ngIf="tickets$ | async as tickets" class="row">
+  <div class="col-12">
+    <pagination
+      [totalItems]="tickets.length"
+      [(ngModel)]="currentPage"
+      [maxSize]="10"
+      [itemsPerPage]="step"></pagination>
+      {{ currentPage }}
+  </div>
   <div class="col-12">
     <table class="table table-striped">
       <thead>
@@ -45,7 +53,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let ticket of tickets$ | async | filter:filterPhrase:filterKey">
+        <tr *ngFor="let ticket of $any(tickets | filter:filterPhrase:filterKey | slice:(currentPage-1)*step:currentPage*step)">
           <td>{{ ticket.id }}</td>
           <td>{{ ticket.flightNumber }}</td>
           <td>{{ ticket.seat }}</td>
@@ -61,6 +69,12 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (numPages)="smallnumPages = $event"></pagination>
   </div>
 </div>
 

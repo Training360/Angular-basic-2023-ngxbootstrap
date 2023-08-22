@@ -6,13 +6,15 @@ import { TicketService } from 'src/app/service/ticket.service';
 import { BooleanPipe } from '../../pipe/boolean.pipe';
 import { ArrayFilterPipe } from '../../pipe/array-filter.pipe';
 import { BtnGroupComponent } from '../../common/btn-group/btn-group.component';
-import { NgIf, NgFor, AsyncPipe, NgTemplateOutlet } from '@angular/common';
+import { NgIf, NgFor, AsyncPipe, SlicePipe } from '@angular/common';
 import { FilterComponent, IFilterItems } from '../filter/filter.component';
 import { FilterPipe } from '../filter/filter.pipe';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { ToastService } from 'src/app/common/toast.component';
 import { ToasterService } from 'src/app/common/toaster.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-tickets',
@@ -22,11 +24,20 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
     providers: [
       BsModalService,
     ],
-    imports: [RouterLink, NgIf, NgFor, BtnGroupComponent, AsyncPipe,
-      ArrayFilterPipe, BooleanPipe,
+    imports: [
+      RouterLink,
+      NgIf,
+      NgFor,
+      FormsModule,
+      BtnGroupComponent,
+      AsyncPipe,
+      SlicePipe,
+      ArrayFilterPipe,
+      BooleanPipe,
       FilterComponent,
       FilterPipe,
       AlertModule,
+      PaginationModule,
     ],
 })
 export class TicketsComponent {
@@ -50,6 +61,15 @@ export class TicketsComponent {
   filterPhrase: string = '';
 
   filterKey: string = '';
+
+  // Pagination
+  totalItems: number = 0;
+
+  currentPage: number = 1;
+
+  smallnumPages: number = 0;
+
+  step: number = 25;
 
   tickets: Ticket[] = [
     {
