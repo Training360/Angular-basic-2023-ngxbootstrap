@@ -3,41 +3,50 @@ Standalone Angular Applications
 
 ## Lesson-01
 - Explaining the course.
+- Setup ngx-bootstrap:
+- `ng add ngx-bootstrap`
 
 ## Lesson-02
-- `ng generate @angular/core:standalone`
-- choose: `Convert all components, directives and pipes to standalone`
-- `ng generate @angular/core:standalone`
-- choose: `Remove unnecessary NgModule classes.`
-- `ng generate @angular/core:standalone`
-- choose: `Bootstrap the project using standalone APIs.`
-- Explaining the modifications:
-- [main.ts](src/main.ts)
-- [TicketModule](src/app/ticket/ticket.module.ts)
-- [TicketsComponent](src/app/ticket/tickets/tickets.component.ts)
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/dropdowns?tab=overview)
+- [ConfigService](src\app\service\config.service.ts)
+- [NavComponent](src/app/common/nav/nav.component.ts)
+- `import { BsDropdownModule } from 'ngx-bootstrap/dropdown';`
+- [NavComponent HTML](src\app\common\nav\nav.component.html)
 
 ## Lesson-03
-- Generate a new standalone component and pipe:
-- `ng g c ticket/filter --standalone`
-- `ng g pipe ticket/filter/filter --standalone --skip-tests`
-- [FilterPipe](src/app/ticket/filter/filter.pipe.ts)
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/alerts?tab=overview)
+- [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
+- `import { AlertModule } from 'ngx-bootstrap/alert';`
+- [TicketsComponent HTML](src\app\ticket\tickets\tickets.component.ts)
 
 ## Lesson-04
-- [FilterComponent](src/app/ticket/filter/filter.component.ts)
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/datepicker?tab=overview)
+- [Ticket](src\app\model\ticket.ts)
+- [TicketCreateComponent](src\app\ticket\ticket-create\ticket-create.component.ts)
+- `import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';`
+- [TicketCreateComponent HTML](src\app\ticket\ticket-create\ticket-create.component.html)
 
 ## Lesson-05
-- [TicketsComponent](src/app/ticket/tickets/tickets.component.ts)
+`ng g c common/toaster --inline-template --standalone --skip-tests --inline-style --flat`
+- [Doc](https://getbootstrap.com/docs/5.0/components/toasts/#color-schemes)
+- [ToasterComponent](src\app\common\toaster.component.ts)
 
 ## Lesson-06
-- [AppRoutingModule](src/app/app-routing.module.ts)
+- [AppComponent](src\app\app.component.ts)
+- [AppComponent HTML](src\app\app.component.html)
+- [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
 
 ## Lesson-07
-- Delete: TicketModule, TicketRoutingModule
-- Fix:
-- [TicketCreateComponent](src/app/ticket/ticket-create/ticket-create.component.ts)
-- [TicketEditorComponent](src/app/ticket/ticket-editor/ticket-editor.component.ts)
-- [TicketEditorComponent HTML](src/app/ticket/ticket-editor/ticket-editor.component.html)
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/modals?tab=overview#confirm-window)
+- [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
+- `import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';`
+- `providers: [ BsModalService ],`
+- [TicketsComponent HTML](src\app\ticket\tickets\tickets.component.html)
 
 ## Lesson-08
-- [Routes](src\app\ticket\routes.ts)
-- [AppRoutingModule](src/app/app-routing.module.ts)
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/pagination?tab=overview)
+- [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
+- [TicketsComponent HTML](src\app\ticket\tickets\tickets.component.html)
+
+## Lesson-09
+Summary
