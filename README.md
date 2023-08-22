@@ -32,6 +32,8 @@ Standalone Angular Applications
 - [AppComponent HTML](src\app\app.component.html)
 - [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
 
+`ng g c common/toaster --inline-template --standalone --skip-tests --inline-style --flat`
+
 ## Lesson-06
 
 

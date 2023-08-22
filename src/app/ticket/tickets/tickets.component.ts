@@ -11,6 +11,7 @@ import { FilterComponent, IFilterItems } from '../filter/filter.component';
 import { FilterPipe } from '../filter/filter.pipe';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { ToastService } from 'src/app/common/toast.component';
+import { ToasterService } from 'src/app/common/toaster.component';
 
 @Component({
     selector: 'app-tickets',
@@ -31,6 +32,8 @@ export class TicketsComponent {
   ticketService: TicketService = inject(TicketService);
 
   toastService = inject(ToastService);
+
+  toasterService = inject(ToasterService);
 
   title = 'angular-directives';
 
@@ -100,7 +103,8 @@ export class TicketsComponent {
   onGroupClick(details: IBtnGroupOutput) {
     switch (details.name) {
       case 'remove':
-        this.toastService.show(`You don't have the right to delete!`, 3000, 'danger');
+        this.toasterService.add(`You don't have the right to delete!`, 3000, 'danger');
+        // this.toastService.show(`You don't have the right to delete!`, 3000, 'danger');
         // this.ticketService.dispatch('delete', (details.data as Ticket));
         break;
       case 'show':
