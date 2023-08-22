@@ -43,36 +43,10 @@ Standalone Angular Applications
 - `providers: [ BsModalService ],`
 - [TicketsComponent HTML](src\app\ticket\tickets\tickets.component.html)
 
-
-
-
-
-
-
-
-
-## Lesson-03
-
-
-
-
-
-## Lesson-04
-
-
-## Lesson-05
-
-
-## Lesson-06
-
-
-## Lesson-07
-
-
-
-
-
-
 ## Lesson-08
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/pagination?tab=overview)
+- [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
+- [TicketsComponent HTML](src\app\ticket\tickets\tickets.component.html)
 
-
+## Lesson-09
+Summary
