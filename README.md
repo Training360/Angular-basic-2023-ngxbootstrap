@@ -27,15 +27,21 @@ Standalone Angular Applications
 - [TicketCreateComponent HTML](src\app\ticket\ticket-create\ticket-create.component.html)
 
 ## Lesson-05
-- [ToastComponent](src\app\common\toast.component.ts)
+`ng g c common/toaster --inline-template --standalone --skip-tests --inline-style --flat`
+- [Doc](https://getbootstrap.com/docs/5.0/components/toasts/#color-schemes)
+- [ToasterComponent](src\app\common\toaster.component.ts)
+
+## Lesson-06
 - [AppComponent](src\app\app.component.ts)
 - [AppComponent HTML](src\app\app.component.html)
 - [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
 
-`ng g c common/toaster --inline-template --standalone --skip-tests --inline-style --flat`
-
-## Lesson-06
-
+## Lesson-07
+- [Doc](https://valor-software.com/ngx-bootstrap/#/components/modals?tab=overview#confirm-window)
+- [TicketsComponent](src\app\ticket\tickets\tickets.component.ts)
+- `import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';`
+- `providers: [ BsModalService ],`
+- [TicketsComponent HTML](src\app\ticket\tickets\tickets.component.html)
 
 
 

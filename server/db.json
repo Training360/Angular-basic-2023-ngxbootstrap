@@ -1,24 +1,10 @@
 {
   "tickets": [
     {
-      "id": 4,
-      "flightNumber": "bu9896",
-      "seat": "i1",
-      "service": "business",
-      "checked": false
-    },
-    {
       "id": 8,
       "flightNumber": "wc6269",
       "seat": "c5",
       "service": "tourist",
-      "checked": true
-    },
-    {
-      "id": 9,
-      "flightNumber": "rd1642",
-      "seat": "a0",
-      "service": "economy",
       "checked": true
     },
     {

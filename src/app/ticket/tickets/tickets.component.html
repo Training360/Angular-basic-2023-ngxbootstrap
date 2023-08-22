@@ -55,7 +55,7 @@
           </td>
           <td>
             <app-btn-group [data]="ticket"
-              [buttons]="btnGroup" (btnClick)="onGroupClick($event)">
+              [buttons]="btnGroup" (btnClick)="onGroupClick($event, deleteConfirm)">
             </app-btn-group>
           </td>
         </tr>
@@ -63,3 +63,11 @@
     </table>
   </div>
 </div>
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>Do you want to delete?</p>
+    <button type="button" class="btn btn-danger" (click)="confirmDelete()" >Yes</button>
+    <button type="button" class="btn btn-default" (click)="declineDelete()" >No</button>
+  </div>
+</ng-template>

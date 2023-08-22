@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, TemplateRef, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { IBtn, IBtnGroupOutput } from 'src/app/common/btn-group/btn-group.component';
 import { Ticket } from 'src/app/model/ticket';
@@ -6,18 +6,22 @@ import { TicketService } from 'src/app/service/ticket.service';
 import { BooleanPipe } from '../../pipe/boolean.pipe';
 import { ArrayFilterPipe } from '../../pipe/array-filter.pipe';
 import { BtnGroupComponent } from '../../common/btn-group/btn-group.component';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { NgIf, NgFor, AsyncPipe, NgTemplateOutlet } from '@angular/common';
 import { FilterComponent, IFilterItems } from '../filter/filter.component';
 import { FilterPipe } from '../filter/filter.pipe';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { ToastService } from 'src/app/common/toast.component';
 import { ToasterService } from 'src/app/common/toaster.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
     selector: 'app-tickets',
     templateUrl: './tickets.component.html',
     styleUrls: ['./tickets.component.scss'],
     standalone: true,
+    providers: [
+      BsModalService,
+    ],
     imports: [RouterLink, NgIf, NgFor, BtnGroupComponent, AsyncPipe,
       ArrayFilterPipe, BooleanPipe,
       FilterComponent,
@@ -35,7 +39,11 @@ export class TicketsComponent {
 
   toasterService = inject(ToasterService);
 
-  title = 'angular-directives';
+  modalService: BsModalService = inject(BsModalService);
+
+  modalRef?: BsModalRef;
+
+  selectedTicket: Ticket | null = null;
 
   isSearchBarVisible: boolean = false;
 
@@ -100,10 +108,12 @@ export class TicketsComponent {
     this.filterPhrase = values.phrase;
   }
 
-  onGroupClick(details: IBtnGroupOutput) {
+  onGroupClick(details: IBtnGroupOutput, confirm: TemplateRef<any>) {
     switch (details.name) {
       case 'remove':
-        this.toasterService.add(`You don't have the right to delete!`, 3000, 'danger');
+        this.selectedTicket = details.data as Ticket;
+        this.modalRef = this.modalService.show(confirm, {class: 'modal-sm'});
+        // this.toasterService.add(`You don't have the right to delete!`, 3000, 'danger');
         // this.toastService.show(`You don't have the right to delete!`, 3000, 'danger');
         // this.ticketService.dispatch('delete', (details.data as Ticket));
         break;
@@ -112,5 +122,15 @@ export class TicketsComponent {
         // this.ticketService.dispatch('get', details.data.id);
         break;
     }
+  }
+
+  confirmDelete(): void {
+    this.ticketService.dispatch('delete', this.selectedTicket);
+    this.selectedTicket = null;
+    this.modalRef?.hide();
+  }
+
+  declineDelete(): void {
+    this.modalRef?.hide();
   }
 }
